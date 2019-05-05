@@ -1,0 +1,2 @@
+# Random Walk
+## Notion Notes:
