@@ -1,16 +1,16 @@
 function [ jalur, titik_akhir ] = random_walk2D( titik_awal, ...
                                                  jumlah_step, ...
-                                                 choice, dimensi )
+                                                 kemungkinan, dimensi )
 
-steps = zeros(jumlah_step, dimensi);
+langkah = zeros(jumlah_step, dimensi); % alokasi memori
 
 for i = 1:jumlah_step
-    step_direction = choice(randperm(numel(choice),2));
-    steps(i, :) = step_direction;
+    arah_langkah = kemungkinan(randperm(numel(kemungkinan),2));
+    langkah(i, :) = arah_langkah;
 end
 
-jalur = [titik_awal; steps];
-jalur=cumsum(jalur);
+jalur = [titik_awal; langkah];
+jalur=cumsum(jalur); % cumulative sum
 titik_akhir = jalur(end, :);
 
 end
